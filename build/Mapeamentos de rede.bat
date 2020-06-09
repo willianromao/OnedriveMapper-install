@@ -1,0 +1,1 @@
+powershell.exe -File "C:\OneDriveMapper\OneDriveMapper.ps1"
