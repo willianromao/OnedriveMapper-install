@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Mapeamentos de rede"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "Willian Romão"
 #define MyAppURL "https://github.com/willianromao"
 #define MyAppExeName "Mapeamentos de rede.exe"
@@ -50,6 +50,14 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 Name: "{commonstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+
+[Registry]
+Root: HKLM32; Subkey: "SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"; \
+    ValueType: string; ValueName: "ExecutionPolicy"; ValueData: "Unrestricted"; \
+    Flags: uninsdeletevalue
+Root: HKLM64; Subkey: "SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"; \
+    ValueType: string; ValueName: "ExecutionPolicy"; ValueData: "Unrestricted"; \
+    Flags: uninsdeletevalue
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
